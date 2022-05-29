@@ -327,7 +327,11 @@ open class Segmentio: UIView {
         shapeLayer.fillColor = backgroundColor.cgColor
         shapeLayer.strokeColor = backgroundColor.cgColor
         shapeLayer.lineWidth = height
-        shapeLayer.lineCap = rounded ? CAShapeLayerLineCap.round : CAShapeLayerLineCap.butt
+        if rounded {
+          shapeLayer.lineCap = .round
+        } else {
+          shapeLayer.lineCap = .butt
+        }
         layer.insertSublayer(shapeLayer, below: sublayer)
     }
     
